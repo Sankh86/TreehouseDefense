@@ -9,5 +9,10 @@ namespace TreehouseDefense
                 throw new OutOfBoundsException($"({x},{y}) is off the map.");
             }
         }
+
+        public bool InRangeOf(MapLocation location, int range)
+            {
+                return DistanceTo(location) <= range;
+            }
     }
 }
