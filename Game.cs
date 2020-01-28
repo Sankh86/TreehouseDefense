@@ -25,8 +25,8 @@ namespace TreehouseDefense
 
                 Invader[] invaders =
                 {
-                    new Invader(path),
-                    new Invader(path),
+                    new ShieldedInvader(path),
+                    new ShieldedInvader(path),
                     new Invader(path),
                     new Invader(path)
                 };
@@ -59,11 +59,6 @@ namespace TreehouseDefense
             {
                 Console.Write($"Unhandled Exception: {ex}");
             }
-
-            // bool isOnMap = map.OnMap(x);
-            // Console.WriteLine(isOnMap);
-
-            // Console.WriteLine(x.DistanceTo(5, 5));
         }
     }
 }
