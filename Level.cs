@@ -33,6 +33,7 @@ namespace TreehouseDefense
                         invader.Move();
                         if (invader.HasScored)
                         {
+                            System.Console.WriteLine($"{invader.ToString()} has bypassed your towers!");
                             return false;
                         }
 

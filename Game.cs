@@ -27,14 +27,24 @@ namespace TreehouseDefense
                 {
                     new ShieldedInvader(path),
                     new ShieldedInvader(path),
+                    new StrongInvader(path),
+                    new StrongInvader(path),
                     new Invader(path),
-                    new Invader(path)
+                    new Invader(path),
+                    new Invader(path),
+                    new Invader(path),
+                    new FastInvader(path),
+                    new FastInvader(path)
                 };
 
                 Tower[] towers = {
+                    new ShotgunTower(new MapLocation(2, 1, map)),
                     new Tower(new MapLocation(2, 3, map)),
-                    new Tower(new MapLocation(4, 1, map)),
-                    new Tower(new MapLocation(6, 3, map))
+                    new Tower(new MapLocation(3, 1, map)),
+                    new SniperTower(new MapLocation(4, 3, map)),
+                    new SniperTower(new MapLocation(5, 1, map)),
+                    new Tower(new MapLocation(6, 1, map)),
+                    new ShotgunTower(new MapLocation(6, 3, map))
                 };
 
                 Level level = new Level(invaders)

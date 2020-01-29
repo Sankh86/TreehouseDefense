@@ -5,6 +5,8 @@ namespace TreehouseDefense
         private static System.Random _random = new System.Random();
         public ShieldedInvader(Path path) : base(path)
         {}
+
+        protected override string Title {get;} ="Shielded Invader";
         public override void DecreaseHealth(int factor)
         {
             if (_random.NextDouble() > .5)
@@ -13,7 +15,7 @@ namespace TreehouseDefense
             }
             else
             {
-                System.Console.WriteLine("Shot was absorbed by it's shield!");
+                System.Console.WriteLine($" and hit {this.ToString()} but it was deflected!");
             }
         }
     }

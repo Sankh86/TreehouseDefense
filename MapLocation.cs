@@ -6,7 +6,7 @@ namespace TreehouseDefense
         {
             if (!map.OnMap(this))
             {
-                throw new OutOfBoundsException($"({x},{y}) is off the map.");
+                throw new OutOfBoundsException($"(this) is off the map.");
             }
         }
 

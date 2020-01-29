@@ -4,9 +4,10 @@ namespace TreehouseDefense
 {
 	class Tower
 	{
-		private const int _range = 1;
-		private const int _power = 1;
-		private const double _accuracy = .85;
+		protected virtual string Title {get;} = "Basic Tower";
+		protected virtual int Range {get;} = 1;
+		protected virtual int Power {get;} = 1;
+		protected virtual double Accuracy {get;} = .75;
 		private static readonly System.Random _random = new System.Random();
 		private readonly MapLocation _location;
 
@@ -15,28 +16,33 @@ namespace TreehouseDefense
 			_location = location;
 		}
 
+		public override string ToString()
+        {
+            return $"{_location.ToString()} {this.Title}";
+        }
 		private bool IsSuccessfulShot()
 		{
-			return _random.NextDouble() <= _accuracy;
+			return _random.NextDouble() <= Accuracy;
 		}
 
 		public void FireOnInvaders(Invader[] invaders)
 		{
 			foreach(Invader invader in invaders)
             {
-                if(invader.IsActive && _location.InRangeOf(invader.Location, _range))
+                if(invader.IsActive && _location.InRangeOf(invader.Location, Range))
                 {
                     if(IsSuccessfulShot())
                     {
-                        invader.DecreaseHealth(_power);
+                        Console.Write($"{this.ToString()} shot ");
+						invader.DecreaseHealth(Power);
                         if(invader.IsNeutralized)
                         {
-                            Console.WriteLine("Neutralized an invader!");
+                            Console.WriteLine($"  ** Neutralized {invader.ToString()} at {invader.Location}! **");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Shot at and missed an invader");
+                        Console.WriteLine($"{this.ToString()} fired and missed {invader.ToString()}");
                     }
                     break;
                 }

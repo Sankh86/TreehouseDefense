@@ -2,10 +2,12 @@ namespace TreehouseDefense
 {
 	class Invader
 	{
+		protected virtual string Title {get;} ="Basic Invader";
 		private readonly Path _path;
 		private int _pathStep = 0;
+		protected virtual int StepSize {get;} =1;
 		public MapLocation Location => _path.GetLocationAt(_pathStep);
-		public int Health {get; private set;} = 2;
+		public virtual int Health {get; protected set;} = 2;
 		public bool HasScored => _pathStep >= _path.Length;
 		public bool IsNeutralized => Health <= 0;
 		public bool IsActive => !(IsNeutralized || HasScored);
@@ -15,12 +17,16 @@ namespace TreehouseDefense
 			_path = path;
 		}
 
-		public void Move() => _pathStep += 1;
+		public override string ToString()
+        {
+            return $"{this.Title}";
+        }
+		public void Move() => _pathStep += StepSize;
 
 		public virtual void DecreaseHealth(int factor)
 		{
 			Health -= factor;
-			System.Console.WriteLine("Shot at and hit an invader!");
+			System.Console.WriteLine($"and hit {this.ToString()}!");
 		}
 	}
 }
