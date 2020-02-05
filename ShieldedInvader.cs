@@ -15,7 +15,7 @@ namespace TreehouseDefense
             }
             else
             {
-                System.Console.WriteLine($" and hit {this.ToString()} but it was deflected!");
+                System.Console.WriteLine($"and hit {this.ToString()} but it was deflected!");
             }
         }
     }
