@@ -7,6 +7,7 @@ namespace TreehouseDefense
         {}
 
         protected override string Title {get;} ="Shielded Invader";
+        public override int Health {get; protected set;} = 2;
         public override void DecreaseHealth(int factor)
         {
             if (_random.NextDouble() > .5)
